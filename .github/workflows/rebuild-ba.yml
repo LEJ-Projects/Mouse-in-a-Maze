@@ -18,6 +18,10 @@ jobs:
       uses: softprops/action-gh-release@v2
       if: startsWith(github.ref, 'refs/tags/')
       with:
+          name: autobuild
+          draft: true
+          prerelease: false
+          generate_release_notes: true
           files: |
             MIAM.tar.gz
             MIAM.zip
