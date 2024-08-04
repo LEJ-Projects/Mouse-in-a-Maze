@@ -15,7 +15,7 @@ jobs:
     - name: Create tar and zip files
       run: make archive
     - name: Release
-        with:
+      with:
           files: |
             MIAM.tar.gz
             MIAM.zip
