@@ -19,7 +19,7 @@ endif
 
 
 ### FAKE TARGETS (not actual files)
-.PHONY: all clean tar
+.PHONY: all clean tar tokenize
 
 # By default, generate every file using the implicit rules
 all:  ${generated}
@@ -32,7 +32,7 @@ clean:
 
 ### Compile hackerb9's tokenizer program
 tokenize:
-	$(MAKE) -C tokenize tokenize
+	$(MAKE) -C tokenize
 
 
 # GNU tar lets us easily put the files into a subdirectory in the archive.
