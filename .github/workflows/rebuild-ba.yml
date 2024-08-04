@@ -1,0 +1,22 @@
+name: "On Push, rebuild the .BA file from the .DO file"
+
+on:
+  push:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: make
+      run: make
+    - name: Create tar and zip files
+      run: make archive
+        with:
+          files: |
+            MIAM.tar.gz
+            MIAM.zip
+            MIAM.BA
+            MIAM.DO
