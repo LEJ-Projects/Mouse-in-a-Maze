@@ -1,4 +1,4 @@
-name: "On Push of a new tag, rebuild the .BA file from the .DO file and publish as a release"
+name: "On pushing a new tag, create .BA file from .DO and publish as a release"
 
 on:
   push:
