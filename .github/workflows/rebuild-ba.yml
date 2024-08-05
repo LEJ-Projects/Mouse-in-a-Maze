@@ -1,0 +1,27 @@
+name: "On pushing a new tag, create .BA file from .DO and publish as a release"
+
+on:
+  push:
+
+jobs:
+  build_release:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: make
+      run: make
+    - name: Create tar and zip files
+      run: make archive
+    - name: Release
+      uses: softprops/action-gh-release@v2
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+          name: autobuild
+          draft: false
+          prerelease: true
+          generate_release_notes: false
+          files: |
+            MIAM.tar.gz
+            MIAM.zip
+            MIAM.BA
+            MIAM.DO
